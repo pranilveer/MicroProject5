@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroProject5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="score-board">
+            <div class="text-box">
+                Rock
+                <br>
+                Paper
+                <br>
+                Scissors
+            </div>
+            <div class="computer score">
+                <p>
+                    Computer
+                    <br>
+                    Score
+                </p>
+                <span id="computer-score">0</span>
+            </div>
+            <div class="you score">
+                <p>
+                    Your
+                    <br>
+                    Score
+                </p>
+                <span id="user-score">0</span>
+            </div>
+        </div>
+        <div class="play-board">
+            <div class="lines">
+                <div class="line1 line"></div>
+                <div class="line2 line"></div>
+                <div class="line3 line"></div>
+            </div>
+            <div class="actions">
+                <div class="rock-div action" id="rock" onclick="startGame('rock')">
+                    <img src="images/rock.png" alt="rock" width="65px">
+                </div>
+                <div class="paper-div action" id="paper" onclick="startGame('paper')">
+                    <img src="images/paper.png" alt="paper" width="65px">
+                </div>
+                <div class="scissor-div action" id="scissor" onclick="startGame('scissor')">
+                    <img src="images/scissor.png" alt="scissor" width="50px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

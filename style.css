@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&family=Tilt+Warp&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 0.1em;
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
+:root{
+    --light-green: #89C15E;
+    --white : #fff;
+    --light-gray : #000000a3;
+    --light-blue : #0074b6;
+    --orange : #ffa943;
+    --purple : #bd00ff;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: var(--light-green);
+}
+
+.score-board{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+    border: 2px solid var(--white);
+    border-radius: 13px;
+    width: 60%;
+}
+
+.text-box {
+    flex: 1;
+    color: #ffff;
+    font-size: 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-left: 1rem;
+}
+
+.score{
+    background: #ffffff;
+    border-radius: 9px;
+    width: 130px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.computer{
+    margin-right: 1rem;
+}
+
+.you{
+    margin-right: 1rem;
+}
+
+
+div{
+    display: block;
+}
+
+p{
+    display: block;
+}
+
+.computer > p, .you > p {
+    color: #656565;
+    font-weight: 700;
+}
+
+.computer > span, .you > span {
+    color: #252525;
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.play-ground{
+    display: grid;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+}
+
+.line{
+    width: 260px;
+    height: 0px;
+    border: 7px solid var(--light-gray);
+}
+
+.line2{
+    transform: rotate(60deg);
+    position: relative;
+    left: -50px;
+    top: 100px;
+}
+
+.line3{
+    transform: rotate(120deg);
+    position: relative;
+    left: 78px;
+    top: 82px;
+}
+
+.lines{
+    padding-top: 100px;
+}
+
+.actions{
+    position: relative;
+    right: 130%;
+}
+
+.action{
+    display: flex;
+    width: 150px;
+    height: 150px;
+    background: var(--white);
+    box-shadow: inset 3px 0px 21px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(-1px 1px 11px rgba(0, 0, 0, 0.35));
+
+}
+
+.rock-div{
+    border: 16px solid var(--light-blue);
+}
+
+.rock-div:hover, .paper-div:hover, .scissor-div:hover{
+    box-shadow: inset 3px 0px 21px 1px rgba(0, 0, 0, 0.2);
+    filter: drop-shadow(-1px 1px 11px rgba(255, 255, 255, 0.466));
+
+}
+
+.rock-div:hover{
+    border: 10px solid var(--light-blue);
+}
+
+.paper-div:hover{
+    border: 10px solid var(--orange);
+}
+
+.scissor-div:hover{
+    border: 10px solid var(--purple);
+}
+
+.rock-div > img:hover{
+    width: 75px;
+}
+
+#rock{
+    position: relative;
+    bottom: 110px;
+    left: 288px;
+}
+
+.paper-div{
+    border: 16px solid var(--orange);
+}
+
+#paper{
+    position: relative;
+    bottom: 261px;
+    left: 525px;
+}
+
+.scissor-div{
+    border: 16px solid var(--purple);
+}
+
+#scissor{
+    position: relative;
+    left: 400px;
+    bottom: 207px;
+}
+
+#rock, #paper, #scissor{
+    cursor: pointer;
+}
