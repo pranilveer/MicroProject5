@@ -35,12 +35,13 @@
                 <span id="user-score">0</span>
             </div>
         </div>
-        <div class="play-board">
+        <div class="play-board" id="playBoard">
             <div class="lines">
                 <div class="line1 line"></div>
                 <div class="line2 line"></div>
                 <div class="line3 line"></div>
             </div>
+
             <div class="actions">
                 <div class="rock-div action" id="rock" onclick="startGame('rock')">
                     <img src="images/rock.png" alt="rock" width="65px">
@@ -52,6 +53,43 @@
                     <img src="images/scissor.png" alt="scissor" width="50px">
                 </div>
             </div>
+        </div>
+
+        <div id="result-board">
+            <div class="user-box1 winner-box1 boxes">
+                <div class="user-box2 winner-box2 boxes">
+                    <div class="user-box3 winner-box3 boxes">
+                        <div id="you-picked" class="picked-div">
+                            <h3 class="picked" style="top: 300px;">You Picked</h3>
+                            <div class="result-img rock-div action">
+                                <img src="/images/rock.png" alt="rock" width="60px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result">
+                <p id="result-text-1">YOU WIN</p>
+                <p id="result-text-2">AGAINST PC</p>
+                <button class="filled-btn play-again" id="play-again" style="display: block;" onclick="playAgain()">Play
+                    again</button>
+                <button class="filled-btn tie-up" id="replay" style="display: none;">replay</button>
+            </div>
+
+            <div class="pc-box1 boxes">
+                <div class="pc-box2 boxes">
+                    <div class="pc-box3 boxes">
+                        <div id="you-picked" class="picked-div">
+                            <h3 class="picked" style="top: 300px;">PC Picked</h3>
+                            <div class="result-img rock-div action">
+                                <img src="/images/rock.png" alt="rock" width="60px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 

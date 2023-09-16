@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&family=Tilt+Warp&display=swap');
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     letter-spacing: 0.1em;
-    font-family: 'M PLUS 1p', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 :root{
@@ -83,11 +81,11 @@ p{
     font-weight: 700;
 }
 
-.play-ground{
+.play-board{
     display: grid;
     align-items: center;
     position: fixed;
-    top: 50%;
+    top: 35%;
 }
 
 .line{
@@ -154,8 +152,12 @@ p{
     border: 10px solid var(--purple);
 }
 
-.rock-div > img:hover{
-    width: 75px;
+.rock-div > img:hover, .paper-div > img:hover{
+    width: 80px;
+}
+
+.scissor-div > img:hover{
+    width: 60px;
 }
 
 #rock{
@@ -186,4 +188,88 @@ p{
 
 #rock, #paper, #scissor{
     cursor: pointer;
+}
+
+.picked{
+        position: absolute;
+        z-index: 1;
+        color: var(--white);
+        text-transform: uppercase;
+        font-weight: 500;
+        /* background-color: #fff;
+        width: 240px;
+        height: 240px;
+        border-radius: 50%; */
+        /* box-shadow: inset 0 0 0 30px #66b248,
+                    inset 0 0 0 40px #32a62f, 
+                    inset 0 0 0 70px #289a27, 
+                    inset 0 0 0 30px var(--orange), 
+                    inset 0 0 0 0px var(--orange); */
+}
+
+.result-img{
+    width: 180px;
+    height: 180px;
+}
+
+.boxes{
+    border-radius: 50%;
+}
+
+.winner-box1{
+    padding: 1.5rem;
+    background: #66b248;
+    box-shadow: 0px 1px 62px rgba(0, 0, 0, 0.13);
+}
+
+.winner-box2{
+    padding: 2rem;
+    background-color: #32a62f;
+}
+
+.winner-box3{
+    padding: 2rem;
+    background-color: #289a27;
+}
+
+#result-board{
+    width: 60%;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.filled-btn{
+    background-color: var(--white);
+    color: #6b6b6b;
+    border: 1px solid transparent;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 0.6rem 1.8rem;
+    border-radius: 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.result{
+    text-align: center;
+    font-weight: 800;
+    font-size: 19px;
+    line-height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+
+#result-text-1{
+    font-size: 40px;
+}
+
+#result-text-2{
+    font-size: 25px;
 }
