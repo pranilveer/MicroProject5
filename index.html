@@ -2,98 +2,137 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MicroProject5</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stone Paper Scissor</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div class="container">
-        <div class="score-board">
-            <div class="text-box">
-                Rock
-                <br>
-                Paper
-                <br>
-                Scissors
-            </div>
-            <div class="computer score">
-                <p>
-                    Computer
-                    <br>
-                    Score
-                </p>
-                <span id="computer-score">0</span>
-            </div>
-            <div class="you score">
-                <p>
-                    Your
-                    <br>
-                    Score
-                </p>
-                <span id="user-score">0</span>
-            </div>
-        </div>
-        <div class="play-board" id="playBoard">
-            <div class="lines">
-                <div class="line1 line"></div>
-                <div class="line2 line"></div>
-                <div class="line3 line"></div>
-            </div>
+  <div class="container">
+<!-- ------------------------------------------------------------------SCORE DIV------------------------------------------------------------------------------ -->
+<div class="score-board">
+      <div class="text-box">Rock<br />Paper<br />Scissors</div>
 
-            <div class="actions">
-                <div class="rock-div action" id="rock" onclick="startGame('rock')">
-                    <img src="images/rock.png" alt="rock" width="65px">
-                </div>
-                <div class="paper-div action" id="paper" onclick="startGame('paper')">
-                    <img src="images/paper.png" alt="paper" width="65px">
-                </div>
-                <div class="scissor-div action" id="scissor" onclick="startGame('scissor')">
-                    <img src="images/scissor.png" alt="scissor" width="50px">
-                </div>
-            </div>
-        </div>
+      <div class="computer score">
+        <p>Computer<br />Score</p>
+        <span id="pc-score">0</span>
+      </div>
 
-        <div id="result-board">
-            <div class="user-box1 winner-box1 boxes">
-                <div class="user-box2 winner-box2 boxes">
-                    <div class="user-box3 winner-box3 boxes">
-                        <div id="you-picked" class="picked-div">
-                            <h3 class="picked" style="top: 300px;">You Picked</h3>
-                            <div class="result-img rock-div action">
-                                <img src="/images/rock.png" alt="rock" width="60px">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="you score">
+        <p>Your<br />Score
+        </p>
+        <span id="user-score">0</span>
+      </div>
 
-            <div class="result">
-                <p id="result-text-1">YOU WIN</p>
-                <p id="result-text-2">AGAINST PC</p>
-                <button class="filled-btn play-again" id="play-again" style="display: block;" onclick="playAgain()">Play
-                    again</button>
-                <button class="filled-btn tie-up" id="replay" style="display: none;">replay</button>
-            </div>
-
-            <div class="pc-box1 boxes">
-                <div class="pc-box2 boxes">
-                    <div class="pc-box3 boxes">
-                        <div id="you-picked" class="picked-div">
-                            <h3 class="picked" style="top: 300px;">PC Picked</h3>
-                            <div class="result-img rock-div action">
-                                <img src="/images/rock.png" alt="rock" width="60px">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
     </div>
 
-    <script src="script.js"></script>
+<!-- ------------------------------------------------------------------PLAY DIV------------------------------------------------------------------------------ -->
+
+    <div id="play-board">
+
+      <div class="lines">
+        <div class="line1 line"></div>
+        <div class="line2 line"></div>
+        <div class="line3 line"></div>
+      </div>
+
+      <div class="actions">
+        <div class="rock-div action" id="rock" onclick="startGame('rock')">
+          <img src="./images/rock.png" alt="rock" width="65px" />
+        </div>
+
+        <div class="paper-div action" id="paper" onclick="startGame('paper')">
+          <img src="./images/paper.png" alt="paper" width="65px" />
+        </div>
+        <div class="scissors-div action" id="scissor" onclick="startGame('scissors')">
+          <img src="./images/scissors.png" alt="scissor" width="50px" />
+        </div>
+      </div>
+
+    </div>
+
+<!-- ------------------------------------------------------------------RESULT DIV------------------------------------------------------------------------------ -->
+    <div id="result-board">
+
+      <div class="boxes user-div1">
+        <div class="boxes user-div2">
+          <div class="boxes user-div3">
+
+            <div id="you-picked" class="picked-div">
+              <h3 class="picked">You Picked</h3>
+              <div class="result-img action user-result"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="result">
+        <p id="result-text-1"></p>
+        <p id="result-text-2">AGAINST PC</p>
+        <button class="filled-btn play-again" id="play-again" onclick="playAgain()">
+          play again
+        </button>
+        <button class="filled-btn tie-up" id="replay" onclick="playAgain()">replay</button>
+      </div>
+
+      <div class="boxes pc-div1">
+        <div class="boxes pc-div2">
+          <div class="boxes pc-div3">
+
+            <div id="pc-picked" class="picked-div">
+              <h3 class="picked">PC Picked</h3>
+              <div class="result-img action pc-result"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+<!-- ------------------------------------------------------------------BUTTON DIV------------------------------------------------------------------------------ -->
+
+    <div class="buttons">
+      <button class="rules-btn btn" onclick="ruleButton()">rules</button>
+      <button class="next-btn btn" id="next-btn" onclick="nextButton()">next</button>
+    </div>
+
+<!-- ------------------------------------------------------------------RULES DIV------------------------------------------------------------------------------ -->
+
+    <div id="rules-div">
+      <div class="close" id="close" onclick="closeButton()">
+        <h1>X</h1>
+      </div>
+      <h3>Game Rules</h3>
+      <ul class="rules">
+        <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+        <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”
+        </li>
+        <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+        <li>If both players lay down the same hand, each player lays down another hand</li>
+      </ul>
+    </div>
+
+
+  </div>
+
+<!-- ------------------------------------------------------------------WINNING DIV------------------------------------------------------------------------------ -->
+
+  <div class="winning-page">
+    <img src="./images/Stars.png" alt="starsImage" id="stars" />
+    <img src="./images/Trophy.png" alt="TrophyImage" id="trophy" />
+    <h2 class="win-text1">HURRAY!!</h2>
+    <h6 class="win-text2">YOU WON THE GAME</h6>
+    <button class="filled-btn large" onclick="playAgain()">play again</button>
+    <div class="buttons">
+      <button class="rules-btn btn">rules</button>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
 </body>
 
 </html>

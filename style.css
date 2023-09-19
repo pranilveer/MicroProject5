@@ -1,275 +1,413 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    letter-spacing: 0.1em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.1em;
 }
+
 
 :root{
-    --light-green: #89C15E;
-    --white : #fff;
-    --light-gray : #000000a3;
-    --light-blue : #0074b6;
-    --orange : #ffa943;
-    --purple : #bd00ff;
+  --light-blue: #0074b6;
+  --violet: #bd00ff;
+  --orange: #ffa943;
+  --white: #fff;
+  --red: #ff0000;
+  --dark-red: #dd0303;
+  --yellow: #fffb00;
+  --body-green: #8cc461;
+  --light-green1: #289a27;
+  --light-green2: #32a62f;
+  --light-green3: #66b248;
+  --dark-green: #004429;
 }
 
-.container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background: var(--light-green);
+body {
+  background-color: var(--body-green);
 }
 
-.score-board{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 3rem;
-    border: 2px solid var(--white);
-    border-radius: 13px;
-    width: 60%;
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* ------------------------------------------------------SCORE CARD----------------------------------------------- */
+.score-board {
+  margin-top: 3rem;
+  border: 2px solid var(--white);
+  border-radius: 13px;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.score {
+  background: var(--white);
+  border-radius: 9px;
+  width: 130px;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .text-box {
-    flex: 1;
-    color: #ffff;
-    font-size: 2rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    margin-left: 1rem;
+  flex: 1;
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-left: 1rem;
 }
 
-.score{
-    background: #ffffff;
-    border-radius: 9px;
-    width: 130px;
-    padding: 0.5rem;
-    margin: 1rem 0;
-    text-align: center;
-    text-transform: uppercase;
+.computer {
+  margin-right: 1rem;
 }
 
-.computer{
-    margin-right: 1rem;
-}
-
-.you{
-    margin-right: 1rem;
-}
-
-
-div{
-    display: block;
-}
-
-p{
-    display: block;
+.you {
+  margin-right: 1rem;
 }
 
 .computer > p, .you > p {
-    color: #656565;
-    font-weight: 700;
+  color: #656565;
+  font-weight: 700;
 }
 
 .computer > span, .you > span {
-    color: #252525;
-    font-size: 3.5rem;
-    font-weight: 700;
+  color: #252525;
+  font-size: 3.5rem;
+  font-weight: 700;
 }
 
-.play-board{
-    display: grid;
-    align-items: center;
-    position: fixed;
-    top: 35%;
+#play-board {
+  display: grid;
+  place-items: center;
+  justify-items: center;
+  position: fixed;
+  top: 50%;
+}
+/* --------------------------------------------------------------LINES--------------------------------------------------------------------- */
+
+.line {
+  width: 260px;
+  height: 0px;
+  border: 7px solid #000000a3;
 }
 
-.line{
-    width: 260px;
-    height: 0px;
-    border: 7px solid var(--light-gray);
+.line2 {
+  transform: rotate(60deg);
+  position: relative;
+  right: 54px;
+  top: 104px;
 }
 
-.line2{
-    transform: rotate(60deg);
-    position: relative;
-    left: -50px;
-    top: 100px;
+.line3 {
+  transform: rotate(120deg);
+  position: relative;
+  left: 74px;
+  top: 82px;
 }
 
-.line3{
-    transform: rotate(120deg);
-    position: relative;
-    left: 78px;
-    top: 82px;
+/* ------------------------------------------------------- ACTIONS ----------------------------------------------------------------------------------------- */
+.actions {
+  position: relative;
+  right: 130%;
+}
+.action {
+  width: 150px;
+  height: 150px;
+  background-color: var(--white);
+  box-shadow: inset 3px 0px 21px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(-1px 1px 11px rgba(0, 0, 0, 0.35));
 }
 
-.lines{
-    padding-top: 100px;
+#rock, #paper, #scissor {
+  cursor: pointer;
 }
 
-.actions{
-    position: relative;
-    right: 130%;
+#rock img:hover, #paper img:hover, #scissor img:hover {
+  transform: scale(1.3);
 }
 
-.action{
-    display: flex;
-    width: 150px;
-    height: 150px;
-    background: var(--white);
-    box-shadow: inset 3px 0px 21px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    filter: drop-shadow(-1px 1px 11px rgba(0, 0, 0, 0.35));
-
+#rock {
+  position: relative;
+  bottom: 110px;
+  left: 225px;
 }
 
-.rock-div{
-    border: 16px solid var(--light-blue);
+.rock-div {
+  border: 16px solid var(--light-blue);
 }
 
-.rock-div:hover, .paper-div:hover, .scissor-div:hover{
-    box-shadow: inset 3px 0px 21px 1px rgba(0, 0, 0, 0.2);
-    filter: drop-shadow(-1px 1px 11px rgba(255, 255, 255, 0.466));
-
+#rock:hover {
+  border: 10px solid var(--light-blue);
+  box-shadow: none;
+  filter: drop-shadow(-1px 1px 11px rgba(255, 255, 255, 0.35));
+  transition: all 0.01s ease-in-out;
+}
+#scissor {
+  position: relative;
+  left: 340px;
+  bottom: 207px;
 }
 
-.rock-div:hover{
-    border: 10px solid var(--light-blue);
+.scissors-div {
+  border: 16px solid var(--violet);
 }
 
-.paper-div:hover{
-    border: 10px solid var(--orange);
+#scissor:hover {
+  border: 10px solid var(--violet);
+  box-shadow: none;
+  filter: drop-shadow(-1px 1px 11px rgba(255, 255, 255, 0.35));
+  transition: all 0.01s ease-in-out;
 }
 
-.scissor-div:hover{
-    border: 10px solid var(--purple);
+#paper {
+  transform: rotate(5.27deg);
+  position: relative;
+  bottom: 261px;
+  left: 465px;
 }
 
-.rock-div > img:hover, .paper-div > img:hover{
-    width: 80px;
+.paper-div {
+  border: 16px solid var(--orange);
 }
 
-.scissor-div > img:hover{
-    width: 60px;
+#paper:hover {
+  border: 10px solid var(--orange);
+  box-shadow: none;
+  filter: drop-shadow(-1px 1px 11px rgba(255, 255, 255, 0.35));
+  transition: all 0.01s ease-in-out;
 }
 
-#rock{
-    position: relative;
-    bottom: 110px;
-    left: 288px;
+/* --------------------------------------------RESULT---------------------------------------------------------------- */
+#result-board {
+  width: 60%;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  display: none;
 }
 
-.paper-div{
-    border: 16px solid var(--orange);
+.result {
+  text-align: center;
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--white);
+}
+.result-img {
+  width: 180px !important;
+  height: 180px !important ;
 }
 
-#paper{
-    position: relative;
-    bottom: 261px;
-    left: 525px;
+#result-text-1 {
+  font-size: 40px;
 }
 
-.scissor-div{
-    border: 16px solid var(--purple);
+#result-text-2 {
+  font-size: 25px;
 }
 
-#scissor{
-    position: relative;
-    left: 400px;
-    bottom: 207px;
+/* ----------------------------------------------------- WINNER HIGHLIGHT ---------------------------------------------------------------- */
+.boxes {
+  border-radius: 50%;
+}
+.winner-box-3 {
+  padding: 2rem;
+  background-color: var(--light-green1);
+}
+.winner-box-2 {
+  padding: 2rem;
+  background-color: var(--light-green2);
+}
+.winner-box-1 {
+  padding: 1.5rem;
+  background: var(--light-green3);
+  box-shadow: 0px 1px 62px rgba(0, 0, 0, 0.13);
 }
 
-#rock, #paper, #scissor{
-    cursor: pointer;
+/* ---------------------------------------------------- PICKED DIV ----------------------------------------------------------------------- */
+
+.picked {
+  position: absolute;
+  z-index: 1;
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
-.picked{
-        position: absolute;
-        z-index: 1;
-        color: var(--white);
-        text-transform: uppercase;
-        font-weight: 500;
-        /* background-color: #fff;
-        width: 240px;
-        height: 240px;
-        border-radius: 50%; */
-        /* box-shadow: inset 0 0 0 30px #66b248,
-                    inset 0 0 0 40px #32a62f, 
-                    inset 0 0 0 70px #289a27, 
-                    inset 0 0 0 30px var(--orange), 
-                    inset 0 0 0 0px var(--orange); */
+.picked-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.result-img{
-    width: 180px;
-    height: 180px;
+/* ----------------------------------------------------BUTTONS CSS---------------------------------------------------------------------- */
+.buttons {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: row;
+}
+.btn {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
-.boxes{
-    border-radius: 50%;
+.btn:hover {
+  background-color: var(--white);
+  color: #6b6b6b;
 }
 
-.winner-box1{
-    padding: 1.5rem;
-    background: #66b248;
-    box-shadow: 0px 1px 62px rgba(0, 0, 0, 0.13);
+.filled-btn {
+  background: var(--white);
+  color: #6b6b6b;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 0.6rem 1.8rem;
+  border-radius: 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.large {
+  font-size: 18px !important;
+  padding: 0.8rem 1.8rem !important;
+}
+.filled-btn:hover {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+#play-again {
+  display: block;
+}
+#replay {
+  padding: 0.5rem 1.8rem !important;
+  display: none;
+}
+#next-btn {
+  display: none;
+  margin-left: 0.6rem;
 }
 
-.winner-box2{
-    padding: 2rem;
-    background-color: #32a62f;
+/* --------------------------------------------------------RULES DIV CSS--------------------------------------------------------------------- */
+#rules-div {
+  position: absolute;
+  right: 40px;
+  bottom: 80px;
+  border: 3px solid darkorange;
+  width: 290px;
+  color: var(--white);
+  background-color: var(--dark-green);
+  border: 7px solid var(--white);
+  border-radius: 13px;
+  padding: 1.8rem;
+  z-index: 4;
+  display: none;
 }
 
-.winner-box3{
-    padding: 2rem;
-    background-color: #289a27;
+#rules-div h3{
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
-#result-board{
-    width: 60%;
-    margin-top: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: row;
+.close {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: -30px;
+  top: -30px;
+  background-color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid var(--white);
+  border-radius: 50%; 
+  cursor: pointer;
 }
 
-.filled-btn{
-    background-color: var(--white);
-    color: #6b6b6b;
-    border: 1px solid transparent;
-    font-size: 17px;
-    font-weight: 500;
-    padding: 0.6rem 1.8rem;
-    border-radius: 8px;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-top: 1rem;
+.close:hover{
+  border: 3px solid var(--white);
+  background-color: var(--dark-red);
 }
 
-.result{
-    text-align: center;
-    font-weight: 800;
-    font-size: 19px;
-    line-height: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
+.rules li {
+  font-size: 0.8rem;
+  list-style: none;
+  text-align: left;
+  text-align: justify;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.008em;
+  z-index: 3;
 }
 
-#result-text-1{
-    font-size: 40px;
+li::before{
+  content: "\25AA";
+  margin-right: 10px;
+  color: var(--yellow);
 }
 
-#result-text-2{
-    font-size: 25px;
+/* --------------------------------------------------------------WINNING PAGE CSS---------------------------------------------------------- */
+.winning-page {
+  display: none;
+  background: var(--body-green);
+  color: var(--white);
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.win-text1 {
+  font-weight: 600;
+  font-size: 6rem;
+}
+.win-text2 {
+  font-weight: 500;
+  font-size: 2.7rem;
+  margin-bottom: 1rem;
+}
+#stars {
+  position: absolute;
+  top: 40px;
+}
+#trophy {
+  margin-top: 5rem;
+  margin-bottom: 1.5rem;
 }
